@@ -1,3 +1,3 @@
 ## CRUD MYSQL-FLASK
 
-![img](https://imgur.com/a/m39WyOF)
+![img](https://i.imgur.com/7XSW0s8.png)
