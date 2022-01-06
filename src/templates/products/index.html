@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Productos</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+       <div class="row"> 
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                 <form action="/new" method="post">
+                     <div class="form-group">
+                         <input type="text" name="Nombre" class="form-control" placeholder="Nombre producto">
+                      </div>
+                      <div class="form-group">
+                         <input type="number" name="Precio" class="form-control" placeholder="Precio producto">
+                      </div>
+                      <div class="form-group">
+                         <input type="number" name="Cantidad" class="form-control" placeholder="Cantidad producto">
+                      </div>
+                      <button type="submit" class="btn-block btn-info">Registrar Producto</button>
+                 </form>
+                </div>
+            </div>
+        </div>
+           <div class="col-md-8">
+                <table class="table">
+                    <thead >
+                        <tr>
+                            <th class="active">Codigo</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for producto in lista%}
+                            <tr>
+                                <td>{{producto.id}}</td>
+                                <td>{{producto.Nombre}}</td>
+                                <td>{{producto.Precio}}</td>
+                                <td>{{producto.Cantidad}}</td>
+                                <td>
+                                    <ul>
+                                        <a href="{{ url_for('products.editarProducto', id=producto.id) }}">Editar</a>
+                                        <a href="{{ url_for('products.eliminarProducto', id=producto.id) }}">Eliminar</a>
+
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                </table>
+           </div>
+
+       </div>
+   </div>
+</body>
+</html>
